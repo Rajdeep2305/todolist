@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../public/JS/index.js"></script>
+  </head>
+  <body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <a href="/" class="text-blue-500 inline-block m-10 ">Go Back To Home</a>
+      <div class="from p-3 text-[#fff] bg-zinc-800 m-10 rounded-md">
+        <form action="/editName" method="post">
+            <input
+            class="block w-full text-[#fff] mb-5 text-[20px] rounded-md outline-none px-5 py-2 bg-zinc-700"
+            type="text"
+            name="previous"
+            placeholder="Previous name"
+            value="<%= filename %>"
+          />
+          <input
+            class="block w-full text-[#fff] text-[20px] rounded-md outline-none px-5 py-2 bg-zinc-700"
+            type="text"
+            name="new"
+            placeholder="New name"
+          />
+          <input
+            class="mt-2 bg-yellow-600 mt-5 px-5 py-2 rounded-md font-bold"
+            type="submit"
+            value="Edit Name"
+          />
+        </form>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../public/JS/index.js"></script>
+  </head>
+  <body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+      <div class="from p-10 text-[#fff]">
+        <form action="/create" method="post">
+          <input
+            class="block w-full text-[#fff] text-[20px] rounded-md outline-none px-5 py-2 bg-zinc-800"
+            type="text"
+            name="title"
+            placeholder="Enter Task Title"
+          />
+          <textarea
+            name="task"
+            class="block w-full text-[#fff] rounded-md outline-none px-5 mt-2 py-2 bg-zinc-800 resize-none h-[200px]"
+            placeholder="Write about your task"
+          ></textarea>
+          <input
+            class="mt-2 bg-blue-600 px-5 py-2 w-full rounded-md"
+            type="submit"
+            value="Create Task"
+          />
+        </form>
+      </div>
+      <div class="tasks p-10 flex gap-3 flex-wrap">
+        <% if(files.length > 0) { %> <% files.forEach(function(val){ %>
+        <div class="task w-72 px-3 py-4 bg-zinc-800 rounded-md">
+          <h1 class="text-white text-3xl tracking-tighter"><%= val %></h1>
+          <a class="text-blue-500 inline-block mt-3" href="../files/<%= val %>"
+            >Read about your task</a
+          >
+          <div class="flex flex-wrap justify-between">
+            <a href="../edit/<%= val %>" class="mt-2 bg-green-600 px-5 py-2 rounded-md text-zinc-100 font-bold" title="Edit Your Task">Edit File Name</a>
+            <a href="/delete/<%= val %>" class="mt-2 bg-red-600 px-5 py-2 rounded-md text-zinc-100 font-bold">Delete</a>
+          </div>
+        </div>
+        <%}) %> <% } else { %>
+        <h3 class="text-zinc-600">You have no task yet</h3>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
